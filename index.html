@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="1.jpeg" alt="Profile Picture" id="profilePic">
+           
+            <h3>Do-it</h3>
+            <p>Hi Aadil Ram</p>
+        </div>
+        <ul>
+            <li><a href="javascript:void(0)" onclick="showAllTasks()" class="menu-item active">All Tasks</a></li>
+            <li><a href="javascript:void(0)" onclick="filterByCategory('personal')" class="menu-item">
+                <span class="dot personal-dot"></span> Personal
+            </a></li>
+            <li><a href="javascript:void(0)" onclick="filterByCategory('freelance')" class="menu-item">
+                <span class="dot freelance-dot"></span> Freelance
+            </a></li>
+            <li><a href="javascript:void(0)" onclick="filterByCategory('work')" class="menu-item">
+                <span class="dot work-dot"></span> Work
+            </a></li>
+            <li><a href="#">Add Filter</a></li>
+            <li><a href="#">Scheduled Tasks</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+        
+    </div>
+
+    <div class="content">
+        
+        
+        <div id="add-task" class="task-form">
+            <h2>Today main focus</h2>
+            <h1>Design team meeting</h1>
+            <input type="text" id="taskName" placeholder="What is your next task?">
+            <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 5px; padding: 10px; width: fit-content;">
+                <input type="datetime-local" id="taskDateTime" style="border: none; outline: none; flex: 1;">
+                <select id="taskCategory" class="task-category" style="border: none; outline: none; background: transparent;">
+                  <option value="">Category</option>
+                  <option value="personal">Personal</option>
+                  <option value="freelance">Freelance</option>
+                  <option value="work">Work</option>
+                </select>
+              </div>
+            <button onclick="addTask()">Add Task</button>
+        </div>
+
+        <div id="view-tasks" class="task-list">
+            <h2>Task Overview</h2>
+            <h3>
+                filter by date:
+                <input type="date" id="dateFilter" onchange="filterTasksByDate()" class="date-filter">
+                <button onclick="resetDateFilter()" class="reset-filter">Go Back</button>
+            </h3>
+            
+            
+            <div id="taskList"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
